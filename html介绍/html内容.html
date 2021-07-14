@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <!-- keywords  description   -->
+        <meta name="keywords" content="表示网站的关键字">
+        <meta name="description" content="指定网站的描述">
+        <meta name="title" content="标签的内容会作为搜索结果的超链接上的文字显示">
+        <!-- 3秒跳转百度页面 -->
+        <!-- <meta http-equiv="refresh" content="3;https://www.baidu.com"> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>test123</p>
+    <!-- &nbsp; &gt; &lt; &copy; 等 叫做实体 -->
+
+    <p>test&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&lt;&copy;test</p>
+
+    <!-- 块元素  页面中独占一行的元素  p h1-h6   在网页中一般通过块元素来对页面进行布局-->
+    <!-- blockquote 块元素 表示引用 长引用 -->
+    鲁迅
+    <blockquote>
+        这句话我从来没说过
+    </blockquote>
+
+    <!-- 标题组，可以将一组相关的标签同时放入到hgroup中 -->
+    <hgroup>
+        <h1>1</h1>
+        <h2>1-1</h2>
+    </hgroup>
+
+    <!-- 行内元素/内联元素 不会独占一行 行内元素主要用来包裹文字，一般情况下块不会再行内元素中放入块元素，而且P元素中不放任何块元素-->
+    <!-- em 标签表示语音语义的加重  语气加重 -->
+    <!-- strong 标签表示语义的加重 -->
+    <!-- q标签 行内元素短引用 -->
+
+    <p>今天天气<em>真</em>不错</p>
+    <p>今天必须<strong>完成作业</strong></p>
+    <q>学而时习之</q>
+
+    <!-- 换行 -->
+    <br>
+
+    <!-- header 表示网页的头部  一个页面有很多头部-->
+    <header></header>
+    <!-- main 表示网页的主体部分（一个网页只能有一个main） -->
+    <main></main>
+    <!-- footer表示网页的底部 一个网页有很多底部 -->
+    <footer></footer>
+    <!-- nav表示网页中的导航 -->
+    <nav></nav>
+    <!-- aside表示和主体相关的内容（侧边栏） -->
+    <aside></aside>
+    <!-- article 表示一个独特的文章 -->
+    <article></article>
+    <!-- section表示一个独特的区块，上面的都不合适就使用section -->
+    <section></section>
+
+    <!-- div 没有语义，用来表示一个区块，目前来讲div还是我们主要的布局元素 -->
+    <div></div>
+    <!-- span 没有语义，一般用于网页中选中的文字  行内元素 -->
+    <span></span>
+
+
+    <!-- 列表 -->
+    <!-- 
+        1、有序列表
+        2、无序列表
+        3、定义列表
+
+        有序列表：ol标签表示创建有序列表，用ul表示列表项
+        无序列表：ul标签表示创建无序列表，用ul表示列表项
+        定义列表： 使用dl标签来创建定义列表，使用dt来表示定义的内容，使用dd来对内容进行解释说明
+     -->
+
+     <ul>
+         <li>1</li>
+         <li>2</li>
+         <li>3</li>
+     </ul>
+
+     <ol>
+         <li>1</li>
+         <li>2</li>
+         <li>3</li>
+     </ol>
+
+     <dl>
+         <dt>123</dt>
+         <dd>这是一个测试的123</dd>
+     </dl>
+
+
+     <!-- 超链接：超链接可以让我们从一个页面跳转到其他页面 或者当前页面的其他位置
+        使用 a 标签来定义超链接 行内元素，可以嵌套任意的元素，除了自身
+        属性：
+            href 指定跳转的目标路径
+                - 可以写一个外部的列表
+                - 可以写一个内部页面的地址
+                当我们需要跳转到服务器内部的页面时，都需要使用相对路径
+                一般都是./ 或者../ 其中./可以省略，默认是./
+                ./ 表示当前文件所在目录
+                ../ 表示当前文件所在目录的上一级目录
+            target 用来指定超链接打开的位置
+                - _self 默认值 在当前页面打开超链接
+                - _blank 在一个新的页面中打开超链接
+        可以直接将超链接的href属性设置为 # ，这样点击超链接以后页面不会发生跳转，而是转到当前页面的顶部位置
+        可以使用 #加上id 来跳转页面里的任意位置
+        可以用 # 来作为相对路径占位符（可以使用JavaScript:; 来使它不会跳到顶部）
+
+        id属性（唯一不重复）
+            每一个标签都可以添加一个id属性
+            id属性就是元素的唯一标识，同一个页面中不能出现重复的id属性
+            id区分大小写
+            通常是字母开头
+    -->
+    <a href="#buttom">超链接</a>
+    <a id ="buttom" href="https://www.baidu.com">超链接</a>
+
+    <!-- 
+        img：图片标签用于引入外部图片
+        自结束标签
+        img这种元素属于替换元素（块元素和行内元素之间，具有两个元素的特点）
+        属性：
+            src 属性指定的是外部图片的路径（路径规则和超链接一样）
+            alt 属性表示图片的描述，这个描述默认不显示，有些浏览器会在图片无法加载时显示
+                主要是搜索引擎会根据alt中的内容来识别图片
+            width 图片的宽度（单位是像素）
+            height 图片的高度
+                - 官渡和高度中如果只修改了一个，则另一个会等比缩放
+            一般情况下载pc端，不建议修改图片的大小，需要多大就裁剪多大
+            在移动端，一般是将大的图片缩小，来保证清晰
+
+        图片的格式
+            jpeg(jpg)
+                -支持的颜色比较丰富，不支持透明效果，不支持动图（一般用来显示照片）
+            gif
+                -支持的颜色比较少，支持简单透明，支持动图（颜色单一的图片，动图）
+            png
+                -支持颜色丰富，支持复杂透明，不支持动图（颜色丰富，复杂透明图片）
+            webp
+                -这种格式是谷歌新推出的专门用来表示网页中的图片的一种格式，它具备其他图片格式的所有优点，而且文件还特别小
+                -缺点：兼容性不佳
+        
+        base64
+            - 将图片使用base64进行编码，这样可以直接将图片转换为字符，然后通过字符的格式来引用（一般都是一些需要和网页一起加载的图片才会使用base64）
+
+            原则：效果一样用小的；效果不一样用效果好的
+
+     -->
+     <img src="file://F:/Epic/Epic Games/Launcher/Portal/SysFiles/Outward-DLC_Art.png" alt="测试图片">
+
+
+     <!-- 内联框架，用于向当前页面中引用一个其他的页面
+        src 指定要引入的网页的路径
+        frameborder 指定内联框架的边框
+        width 宽度
+        height 高度
+
+        不会被搜索引擎分析，对seo无影响
+    -->
+
+    <iframe src="https:www.qq.com" frameborder="0" width="800px" height="600px"></iframe>
+
+    <!-- 音视频
+        audio标签用来向页面中引入一个外部的音频文件
+        video标签用来向页面中引入一个外部的视频文件
+        默认情况下不允许用户自己控制播放停止
+        属性：
+            controls 是否允许用户控制播放
+            autoplay 是否自动播放
+                如果设置了autoplay 则可以自动播放，但是目前大部分的浏览器为了用户体验不会进行自动播放
+            loop 是否循环播放
+
+        除了使用src来指定外部文件的路径外，一般我们都是通过source来指定路径，因为会更好的解决兼容性问题
+    
+    -->
+
+    <audio src="" controls autoplay loop></audio>
+    <audio controls autoplay loop>
+        <source src="">
+        <source src="">
+        <!-- ie8兼容 -->
+        <embed src="" type="audio/mp3" width="300px" height="200px">
+    </audio>
+
+
+    <video src="" controls autoplay loop></video>
+    <video controls autoplay loop>
+        <source src="">
+        <source src="">
+        <!-- ie8兼容 -->
+        <embed src="" type="audio/mp3" width="300px" height="200px">
+    </video>
+
+</body>
+</html>

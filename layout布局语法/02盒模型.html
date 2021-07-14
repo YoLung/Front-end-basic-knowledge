@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            /*
+            内容区（content），元素中的所有的子元素和文本内容都在内容区中排列
+                内容区的大小由width和 height两个属性来设置
+                     width 设置内容区的宽度
+                    height 设置内容区的高度
+            */
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+
+            /*
+            边框（ border) ，边框属于盒子边缘，边框里边属于盒子内部，出了边框都是盒子的外部
+                边框的大小会影响到整个盒子的大小
+            要设置边框,需要至少设置三个样式:
+                边框的宽度border-width
+                边框的颜色 border-color
+                边框的样式border-style
+            */
+
+            /*
+                border-width: 10px;
+                    默认值，一般都是3个像素
+                    border-width可以用来指定四个方向的边框的宽度
+                        值的情况(顺时针)
+                            四个值:上 右 下 左
+                            三个值:上 左右 下
+                            两个值:上下 左右
+                            一个值:上下左右
+                除了border-width还有一组 border-xxx-width
+                    xxx可以是 top right bottom left
+                    用来单独指定某一个边的宽度
+            */
+            border-width: 10px;
+
+            /*
+            border-color用来指定边框的颜色，同样可以分别指定四个边的边框
+                规则和border-width一样
+            border-color也可以省略不写，如果省略了则自动使用color的颜色值
+            */
+            border-color: blueviolet;
+
+            /* 
+                border-style 指定边框的样式（默认值是none 表示没有边框）
+                    solid 实线
+                    dotted 点状虚线
+                    dashed 虚线
+                    double 双线
+            */
+            border-style: solid;
+
+
+            /*
+                border简写属性，通过该属性可以同时设置边框所有的相关样式，并且没有顺序要求
+                
+                除了border以外还有四个 border-XXX
+                    border-top
+                    border-right
+                    border-bottom
+                    border-left
+            */
+            border: solid 10px orange;
+            border-top: 10px solid red;
+            border-left: 10px solid yellow;
+            border-bottom: 10px solid lightskyblue;
+            /* border:10px red solid;
+            border-right:none; */
+
+
+            /*
+                内边距（padding)
+                    -内容区和边框之间的距离是内边距
+                    -一共有四个方向的内边距:
+                        padding-top
+                        padding-right
+                        padding-bottom
+                        padding-left
+                    -内边距的设置会影响到盒子的大小
+                    -背景颜色会延伸到内边距上
+                
+                    一共盒子的可见框的大小，由内容区内边距和边框共同决定，
+                    所以在计算盒子大小时，需要将这三个区域加到一起计算
+            */
+            /*padding-top: 100px;
+                padding-left: 100px;
+                padding-right: 100px;
+                padding-bottom: 100px;*/
+
+            /*
+                padding内边距的简写属性，可以同时指定四个方向的内边距
+                规则和border-width 一样
+            */
+            padding: 10px 20px 30px 40px;
+
+
+            /*
+                外边距（margin)
+                -外边距不会影响盒子可见框的大小
+                -但是外边距会影响盒子的位置
+                -一共有四个方向的外边距;
+                    margin-top
+                        -上外边距，设置一个正值，元素会向下移动 
+                    margin-right
+                        -默认情况下设置margin-right不会产生任何效果
+                    margin-bottom
+                        -下外边距，设置一个正值，其下边的元素会向下移动
+                    margin-left
+                        -左外边距，设置一个正值，元素会向右移动
+                    - margin也可以设置负值，如果是负值则元素会向相反的方向移动
+                    -元素在页面中是按照自左向右的顺序排列的,
+                        所以默认情况下如果我们设置的左和上外边距则会移动元素自身
+                        而设置下和右外边距会移动其他元素
+                - margin的简写属性
+                    margin 可以同时设置四个方向的外边距,用法和padding一样
+
+                - margin会影响到盒子实际占用空间
+                */
+
+            /*margin-top: 100px;
+                margin-left: 100px;
+                margin-bottom: 100px;*/
+            /*margin-bottom: 100px;*/
+            /*margin-top: -100px;*/
+            /*margin-left: - 100px;*/
+            /*margin-bottom: -100px;*/
+            /*margin-right: Opx;*/
+
+            margin: 100px;
+
+        }
+
+        .box2 {
+            width: 100%;
+            height: 100%;
+            background-color: blueviolet;
+        }
+
+        .box3 {
+            width: 220px;
+            height: 220px;
+            background-color: lime;
+        }
+
+        .outer {
+            width: 800px;
+            height: 200px;
+            border: 10px blue solid;
+        }
+
+        .inner {
+            width: auto;
+            height: 200px;
+            background-color: blueviolet;
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+
+        /*
+            元素的水平方向的布局:
+                元素在其父元素中水平方向的位置由以下几个属性共同决定:
+                    margin-left
+                    border-left
+                    padding-left
+                    width
+                    padding-right
+                    border-right
+                    margin-right
+
+            一个元素在其父元素中，水平布局必须要满足以下的等式
+            mangin-left+bonder-left+padding-lefthwidth+padding-right+border-rightmargin-right = 其父元素内容区的宽度（必须满足)
+            0 + 0 + 0 + 200 + 0 + 0 + 0 = 800
+            0 + 0 + 0 + 200 + 0 + 0 + 600 = 800
+
+
+            100 + 0 + 0 + 200 + 0 + 0 + 400 = 800
+            100 + 0 + 0 + 200 + 0 + 0 + 500 = 800
+
+
+                -以上等式必须满足，如果相加结果使等式不成立，则称为过渡约束，则等式会自动调整
+                    -调整的情况;
+                        -如果这七个值中没有为auto 的情况，则浏览器会自动调整margin-right值以使等式满足
+                    -这七个值中有三个值和设置为auto
+                        width
+                        margin-left
+                        maring-right
+                    -如果某个值为auto，则会自动调整为auto的那个值以使等式成立
+
+                    0+0+0+auto+0+0+0=800 auto = 800
+                    0+0+0+auto+0+0+200=800 auto = 600
+                    200+0+0+auto+0+0+200=800 auto = 400
+                    auto+0+0+200+0+0+200=800 auto = 400
+                    auto+0+0+200+0+0+auto=800 auto = 300
+
+                    -  如果将一个宽度和一个外边距设置为auto,则宽度会调整到最大，设置为auto的外边距会自动为0
+                    -  如果将三个值都设置为auto,则外边距都是0，宽度最大
+                    -  如果将两个外边距设置为auto,宽度固定值，则会将外边距设置为相同的值
+                            所以我们经常利用这个特点来使一个元素在其父元素中水平居中
+                                示例:
+                                width:xxxpx;
+                                margin:0 auto;
+
+        */
+        .outer1 {
+            background-color: ■#bfa;
+            height: 600px;
+            /*默认情况下父元素的高度被内容撑开*/
+        }
+
+        .inner1 {
+            width: 100px;
+            background-color: yellow;
+            height: 100px;
+            margin-bottom: 100px;
+        }
+
+        .box4 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            /*子元素是在父元素的内容区中排列的，
+                如果子元素的大小超过了父元素，则子元素会从父元素中溢出
+                使用overflow 属性来设置父元素如何处理溢出的子元素
+
+                可选值: 
+                    visible,默认值子元素会从父元素中溢出，在父元素外部的位置显示
+                    hidden 溢出内容将会被裁剪不会显示
+                    scroll 生成两个滚动条，通过滚动条来查看完整的内容
+                    auto 根据需要生成滚动条
+
+                overflow-x : 单独处理水平方向的溢出
+                overflow-y : 单独处理垂直方向的溢出
+
+            */
+            overflow: auto;
+        }
+
+        .box5 {
+            width: 100px;
+            height: 400px;
+            background-color: orange;
+        }
+
+
+        /*
+        垂直外边距的重叠(折叠)
+            - 相邻的垂直方向外边距会发生重叠现象
+            - 兄弟元素
+                - 兄弟元素间的相邻垂直外边距会取两者之间的较大值(两者都是正值)
+                - 特殊情况:
+                    如果相邻的外边距一正一负，则取两者的和
+                    如果相邻的外边距都是负值，则取两者中绝对值较大的
+        
+                   - 兄弟元素之间的外边距的重叠，对于开发是有利的，所以我们不需要进行处理
+            - 父子元素
+                - 父子元素间相邻外边距，子元素的会传递给父元素(上外边距)
+                - 父子外边距的折叠会影响到页面的布局，必须要进行处理
+        */
+
+        .box6,.box7{
+            width: 200px;
+            height: 200px;
+            font-size: 100px;
+        }
+        .box6 {
+            background-color:#bfa;
+            /*设置一个下外边距*/
+            margin-bottom: 100px;
+        }
+
+        .box7 {
+            background-color: orange;
+            /*设置一个上外边距*/
+            margin-top: 100px;
+        }
+
+        .box8 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            /* padding-top: 100px; */
+            /* border-top: 1px #bfa solid; */
+        }
+
+        .box9 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        盒模型、盒子模型、框模型(box model)
+            -CSS将页面中的所有元素都设置为了一个矩形的盒子
+            -将元素设置为矩形的盒子后，对页面的布局就变成将不同的盒子摆放到不同的位置
+            -每一个盒子都由一下几个部分组成:
+                内容区（content)
+                内边距（padding)
+                边框（border)
+                外边距（margin)
+    -->
+
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <div class="box3"></div>
+
+    <div class="outer">
+
+        <div class="inner"></div>
+    </div>
+
+    <div class="outer1">
+        <div class="inner1"></div>
+        <div class="inner1"></div>
+    </div>
+
+    <div class="box4">
+        盒模型、盒子模型、框模型(box model)
+        -CSS将页面中的所有元素都设置为了一个矩形的盒子
+        -将元素设置为矩形的盒子后，对页面的布局就变成将不同的盒子摆放到不同的位置
+        -每一个盒子都由一下几个部分组成:
+        内容区（content)
+        内边距（padding)
+        边框（border)
+        外边距（margin)盒模型、盒子模型、框模型(box model)
+        -CSS将页面中的所有元素都设置为了一个矩形的盒子
+        -将元素设置为矩形的盒子后，对页面的布局就变成将不同的盒子摆放到不同的位置
+        -每一个盒子都由一下几个部分组成:
+        内容区（content)
+        内边距（padding)
+        边框（border)
+        外边距（margin)盒模型、盒子模型、框模型(box model)
+        -CSS将页面中的所有元素都设置为了一个矩形的盒子
+        -将元素设置为矩形的盒子后，对页面的布局就变成将不同的盒子摆放到不同的位置
+        -每一个盒子都由一下几个部分组成:
+        内容区（content)
+        内边距（padding)
+        边框（border)
+        外边距（margin)盒模型、盒子模型、框模型(box model)
+        -CSS将页面中的所有元素都设置为了一个矩形的盒子
+        -将元素设置为矩形的盒子后，对页面的布局就变成将不同的盒子摆放到不同的位置
+        -每一个盒子都由一下几个部分组成:
+        内容区（content)
+        内边距（padding)
+        边框（border)
+        外边距（margin)
+    </div>
+
+    <div class="box6"></div>
+    <div class="box7"></div>
+
+    <div class="box8">
+        <div class="box9"></div>
+    </div>
+</body>
+
+</html>
