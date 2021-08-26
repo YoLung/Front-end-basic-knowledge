@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="time">2021-9-9</div>
+    <script>
+        var timer = document.getElementById('time');
+        console.log(timer);
+        console.dir(timer);
+    </script>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ol>
+
+    <script>
+        var lis = document.getElementsByTagName('li');
+        for (var i = 0; i < lis.length; i++) {
+            console.log(lis[i]);
+        }
+    </script>
+
+    <script>
+        console.log();
+        var ollis = document.getElementsByTagName('ol')[0].getElementsByTagName('li');
+        for (var i = 0; i < ollis.length; i++) {
+            console.log(ollis[i]);
+        }
+    </script>
+
+
+    <div class="box1">213</div>
+    <div class="box1">213</div>
+
+    <script>
+        console.log(document.getElementsByClassName('box1'));
+        console.log(document.querySelector(".box1"));
+        console.log(document.querySelectorAll('.box1'));
+    </script>
+
+</body>
+
+</html>
